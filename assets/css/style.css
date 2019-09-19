@@ -61,10 +61,6 @@ border-radius: 125px;
   color: white;
 }
 
-.answerOption:hover{
-  background-color: #e67a4c;
-}
-
 #intervalDiv {
   padding-bottom: 10px;
 }
