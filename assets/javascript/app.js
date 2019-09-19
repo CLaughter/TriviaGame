@@ -3,7 +3,6 @@ $(document).ready(function () {
     // GLOBAL VARIABLES****
     let time;
     let timer;
-    let fail = "Time is up";
     let numberCorrect = 0;
     let numberIncorrect = 0;
     let numberUnanswered = 0;
@@ -57,12 +56,12 @@ $(document).ready(function () {
     $('#startGame').on('click', function () {
         question();
         possOptions();
-        correctAnswer();
+        rightAnswer();
     });
 
     // Display question
     function question() {
-        time = 5;
+        time = 15;
         console.log(questionsArr[7]); // test
         
         // hides start game button
@@ -76,66 +75,60 @@ $(document).ready(function () {
         $('#timeRemaining').text(time);
         // display question
         $('#question').text(questionsArr[questionCounter]);
-        // set interval to 0
+        // Set interval to 0
         timer = setInterval(function () {
-          // if time=0, add 1 to unanswered and call showCorrectAnswer function
+          // If time=0, add 1 to unanswered and call correctAnswer function
           if (--time === 0) {
             numberUnanswered += 1;
-            correctAnswer();
+            rightAnswer();
           }
           $('#timeRemaining').text(time);
         }, 1000);
     }; // End Function
 
-    // Display questions
-    function question() {
-        for (let i = 0; i < questionsArr[questionCounter].length; i++) {
-          $('#questions').append('<p class="userQuestions">' + questionsArr[questionCounter][i] + '</p>');
-        }; // End Function
-
     // Display user answer choices
     function possOptions() {
         for (let i = 0; i < choicesArr[questionCounter].length; i++) {
-          $('#answers').append('<p class="answerChoice">' + choicesArr[questionCounter][i] + '</p>');
+            $('#answers').append('<p class="answerChoice">' + (choicesArr[questionCounter][i]) + '</p>');
         } // End Function
     };
 
   // User selects one answer
   $('#answers').on('click', function () {
-        // compare clicked text to correct answer
+        // Compare clicked text to correct answer
         if ($(this).text() === realAnswersArr[questionCounter]) {
-            // if text matches, show user they selected the correct answer
+            // If text matches, show user they selected the correct answer
             $('#correctAnswer').text('Awesome!');
-            // increase numberCorrect answers
+            // Increase numberCorrect answers
             numberCorrect += 1;
         }
-        // if text does not match, show user they selected and incorrect answer
+        // If text does not match, show user they selected and incorrect answer
         else {
             $('#correctAnswer').text('Nope. That\'s not it.');
-            // increase numberIncorrect answers
+            // Increase numberIncorrect answers
             numberIncorrect += 1;
         }
-        // call showCorrectAnswer function
-        correctAnswer();
+        // Call showCorrectAnswer function
+        rightAnswer();
     }); // End Function
 
     //Correct answer is shown.
-    function correctAnswer() {
-        // empty answers div
+    function rightAnswer() {
+        // Empty answers div
         $('#answers').empty();
-        // text to let user know the next question will be shown soon
+        // Text to let user know the next question will be shown soon
         $('#intervaDiv').html('Next question will begin shortly');
-        // display the correct answer
+        // Display the correct answer
         $('#correctAnswer').append('<p>The correct answer is: ' + realAnswersArr[questionCounter] + '</p>');
-        // clear the timer
+        // Clear the timer
         clearInterval(timer);
-        // if question counter is less than Array length, display next question automatically without user input
+        // If question counter is less than Array length, display next question automatically without user input
         if (questionCounter < questionsArr.length - 1) {
             setTimeout(question, 3000);
             setTimeout(possOptions, 3000);
             questionCounter += 1;
         }
-        // if question counter is not less than # options, call endGame function
+        // If question counter is not less than # options, call endGame function
         else {
             setTimeout(endGame, 3000);
         }
@@ -143,30 +136,29 @@ $(document).ready(function () {
 
     // Once the last question is answered, shows # correct, # incorrect, and # unanswered then reset is called. 
     function endGame() {
-        // empty game divs
+        // Empty game divs
         $('#intervalDiv').empty();
         $('#question').empty();
         $('#answers').empty();
         $('#correctAnswers').empty();
-        // show game results
+        // Show game results
         $('#correctAnswers').append('<p>You made it to the end of trivia. Let\'s see how you did...</p>');
         $('#correctAnswers').append('<p>Correct answers: ' + numberCorrect + '</p>');
         $('#correctAnswers').append('<p>Incorrect answers: ' + numberIncorrect + '</p>');
         $('#correctAnswers').append('<p>Unanswered: ' + numberUnanswered + '</p>');
-        // call reset function
+        // Call reset function
         reset();
     }; // End function
 
     function reset() {
         time = 5;
-        // show button to start over without refreshing the page
+        // Show button to start over without refreshing the page
         $('#startGame').show();
-        // reset global variables
+        // Reset global variables
         numberCorrect = 0;
         numberIncorrect = 0;
         numberUnanswered = 0;
         questionCounter = 0;
     }; // End function
 
-    }
 });
