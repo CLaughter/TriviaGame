@@ -21,34 +21,58 @@ $(document).ready(function () {
     ];
 
     let choicesArr = [
-        '22', '13', '25', '32',
-        '60:1 to 120/2', '5:3 to 8/5', 'mph to hpk',
-        'Proxima Centauri', 'Icarus', 'Alpha Centauri B', 'Pluto',
-        'True', 'False',
-        'Sublimation', 'Condensation', 'Melting', 'Evaporation',
-        'Hydrometer', 'Tempometer', 'Gyrometer', 'Thermometer',
-        'Surge', 'Depression', 'Tsunami', 'Ripple',
-        'Butterflies', 'Monkeys', 'Snakes', 'Spiders'
+        ['22', '13', '25', '32'],
+        ['60:1 to 120/2', '5:3 to 8/5', 'mph to hpk'],
+        ['Proxima Centauri', 'Icarus', 'Alpha Centauri B', 'Pluto'],
+        ['True', 'False'],
+        ['Sublimation', 'Condensation', 'Melting', 'Evaporation'],
+        ['Hydrometer', 'Tempometer', 'Gyrometer', 'Thermometer'],
+        ['Surge', 'Depression', 'Tsunami', 'Ripple'],
+        ['Butterflies', 'Monkeys', 'Snakes', 'Spiders']
     ];
 
 //   options[0].possOption
     let realAnswersArr = [
 
-        '2 - A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. A natural number greater than 1 that is not prime is called a composite number. For example, 5 is prime because the only ways of writing it as a product, 1 × 5 or 5 × 1, involve 5 itself.',
+        { 
+            answer: '13',
+            explanation: '2 - A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. A natural number greater than 1 that is not prime is called a composite number. For example, 5 is prime because the only ways of writing it as a product, 1 × 5 or 5 × 1, involve 5 itself.'
+        },
 
-        '1 - A ratio is a relationship between two units of type and can be written either way 1:10 to 1/10; x:y to x/y; miles/hour (mph) to kilometers/hour (kph).',
+        {
+            answer: '60:1 to 120/2',
+            explanation: '1 - A ratio is a relationship between two units of type and can be written either way 1:10 to 1/10; x:y to x/y; miles/hour (mph) to kilometers/hour (kph).'
+        },
 
-        '3 - The closest star to Earth are three stars in the Alpha Centauri system. The two main stars are Alpha Centauri A and Alpha Centauri B, which form a binary pair.',
+        {
+            answer: 'Alpha Centauri B',
+            explanation: '3 - The closest star to Earth are three stars in the Alpha Centauri system. The two main stars are Alpha Centauri A and Alpha Centauri B, which form a binary pair.'
+        },
 
-        '2 - Summer months mean long days and short nights and significantly reduces stargazing opportunities. Autumn, Winter and Spring offer the best times to stargaze and many astronomers refer to an "observing season". This is the time from when clocks go back in October (nights become 1 hour longer) to the time they go forward in March (nights become 1 hour shorter).',
+        {
+            answer: 'False',
+            explanation: '2 - Summer months mean long days and short nights and significantly reduces stargazing opportunities. Autumn, Winter and Spring offer the best times to stargaze and many astronomers refer to an "observing season". This is the time from when clocks go back in October (nights become 1 hour longer) to the time they go forward in March (nights become 1 hour shorter).'
+        },
 
-        '2 - Changes of state are physical changes in matter. They are reversible changes that do not change matter\'s chemical makeup or chemical properties. Processes involved in changes of state include melting, freezing, sublimation, deposition, condensation, and evaporation.',
+        {
+            answer: 'Condensation',
+            explanation: '2 - Changes of state are physical changes in matter. They are reversible changes that do not change matter\'s chemical makeup or chemical properties. Processes involved in changes of state include melting, freezing, sublimation, deposition, condensation, and evaporation.'
+        },
 
-        '4 - A thermometer is a device that measures temperature or a temperature gradient.',
+        {
+            answer: 'Thermometer',
+            explanation: '4 - A thermometer is a device that measures temperature or a temperature gradient.'
+        },
 
-        '3 - They are both long gravity waves which get amplified in shallow water, but they are caused by totally different phenomena. Storm surge is cause by hurricanes and happens far more often than tsunamis. ... Tsunamis occur far less often than storm surge and bring with them much more loss of life and damage.',
+        {
+            answer: 'Tsunami',
+            explanation: '3 - They are both long gravity waves which get amplified in shallow water, but they are caused by totally different phenomena. Storm surge is cause by hurricanes and happens far more often than tsunamis. ... Tsunamis occur far less often than storm surge and bring with them much more loss of life and damage.'
+        },
 
-        '4 - Arachnophobia is the unreasonable fear of spiders and other arachnids such as scorpions.'
+        {
+            answer: 'Spiders',
+            explanation: '4 - Arachnophobia is the unreasonable fear of spiders and other arachnids such as scorpions.'
+        },
     ];
 
     // FUNCTIONS****
@@ -56,7 +80,7 @@ $(document).ready(function () {
     $('#startGame').on('click', function () {
         question();
         possOptions();
-        rightAnswer();
+        // rightAnswer();
     });
 
     // Display question
@@ -94,9 +118,9 @@ $(document).ready(function () {
     };
 
   // User selects one answer
-  $('#answers').on('click', function () {
+  $(document).on('click', '.answerChoice', function () {
         // Compare clicked text to correct answer
-        if ($(this).text() === realAnswersArr[questionCounter]) {
+        if ($(this).text() === realAnswersArr[questionCounter].answer) {
             // If text matches, show user they selected the correct answer
             $('#correctAnswer').text('Awesome!');
             // Increase numberCorrect answers
@@ -117,15 +141,15 @@ $(document).ready(function () {
         // Empty answers div
         $('#answers').empty();
         // Text to let user know the next question will be shown soon
-        $('#intervaDiv').html('Next question will begin shortly');
+        $('#intervalDiv').html('Next question will begin shortly');
         // Display the correct answer
-        $('#correctAnswer').append('<p>The correct answer is: ' + realAnswersArr[questionCounter] + '</p>');
+        $('#correctAnswers').append('<p>The correct answer is: ' + realAnswersArr[questionCounter].explanation + '</p>');
         // Clear the timer
         clearInterval(timer);
         // If question counter is less than Array length, display next question automatically without user input
         if (questionCounter < questionsArr.length - 1) {
-            setTimeout(question, 3000);
-            setTimeout(possOptions, 3000);
+            setTimeout(function() {question()}, 3000);
+            setTimeout(function() {possOptions()}, 3000);
             questionCounter += 1;
         }
         // If question counter is not less than # options, call endGame function
