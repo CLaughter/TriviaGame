@@ -36,42 +36,42 @@ $(document).ready(function () {
 
         { 
             answer: '13',
-            explanation: '2 - A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. A natural number greater than 1 that is not prime is called a composite number. For example, 5 is prime because the only ways of writing it as a product, 1 × 5 or 5 × 1, involve 5 itself.'
+            explanation: 'A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. A natural number greater than 1 that is not prime is called a composite number. For example, 5 is prime because the only ways of writing it as a product, 1 × 5 or 5 × 1, involve 5 itself.'
         },
 
         {
             answer: '60:1 to 120/2',
-            explanation: '1 - A ratio is a relationship between two units of type and can be written either way 1:10 to 1/10; x:y to x/y; miles/hour (mph) to kilometers/hour (kph).'
+            explanation: 'A ratio is a relationship between two units of type and can be written either way 1:10 to 1/10; x:y to x/y; miles/hour (mph) to kilometers/hour (kph).'
         },
 
         {
             answer: 'Alpha Centauri B',
-            explanation: '3 - The closest star to Earth are three stars in the Alpha Centauri system. The two main stars are Alpha Centauri A and Alpha Centauri B, which form a binary pair.'
+            explanation: 'The closest star to Earth are three stars in the Alpha Centauri system. The two main stars are Alpha Centauri A and Alpha Centauri B, which form a binary pair.'
         },
 
         {
             answer: 'False',
-            explanation: '2 - Summer months mean long days and short nights and significantly reduces stargazing opportunities. Autumn, Winter and Spring offer the best times to stargaze and many astronomers refer to an "observing season". This is the time from when clocks go back in October (nights become 1 hour longer) to the time they go forward in March (nights become 1 hour shorter).'
+            explanation: 'Summer months mean long days and short nights and significantly reduces stargazing opportunities. Autumn, Winter and Spring offer the best times to stargaze and many astronomers refer to an "observing season". This is the time from when clocks go back in October (nights become 1 hour longer) to the time they go forward in March (nights become 1 hour shorter).'
         },
 
         {
             answer: 'Condensation',
-            explanation: '2 - Changes of state are physical changes in matter. They are reversible changes that do not change matter\'s chemical makeup or chemical properties. Processes involved in changes of state include melting, freezing, sublimation, deposition, condensation, and evaporation.'
+            explanation: 'Changes of state are physical changes in matter. They are reversible changes that do not change matter\'s chemical makeup or chemical properties. Processes involved in changes of state include melting, freezing, sublimation, deposition, condensation, and evaporation.'
         },
 
         {
             answer: 'Thermometer',
-            explanation: '4 - A thermometer is a device that measures temperature or a temperature gradient.'
+            explanation: 'A thermometer is a device that measures temperature or a temperature gradient.'
         },
 
         {
             answer: 'Tsunami',
-            explanation: '3 - They are both long gravity waves which get amplified in shallow water, but they are caused by totally different phenomena. Storm surge is cause by hurricanes and happens far more often than tsunamis. ... Tsunamis occur far less often than storm surge and bring with them much more loss of life and damage.'
+            explanation: 'They are both long gravity waves which get amplified in shallow water, but they are caused by totally different phenomena. Storm surge is cause by hurricanes and happens far more often than tsunamis. ... Tsunamis occur far less often than storm surge and bring with them much more loss of life and damage.'
         },
 
         {
             answer: 'Spiders',
-            explanation: '4 - Arachnophobia is the unreasonable fear of spiders and other arachnids such as scorpions.'
+            explanation: 'Arachnophobia is the unreasonable fear of spiders and other arachnids such as scorpions.'
         },
     ];
 
@@ -143,7 +143,8 @@ $(document).ready(function () {
         // Text to let user know the next question will be shown soon
         $('#intervalDiv').html('Next question will begin shortly');
         // Display the correct answer
-        $('#correctAnswers').append('<p>The correct answer is: ' + realAnswersArr[questionCounter].explanation + '</p>');
+        $('#correctAnswers').append('<p>The correct answer is: ' + realAnswersArr[questionCounter].answer + '</p>');
+        $('#correctAnswers').append('<p>' + realAnswersArr[questionCounter].explanation + '</p>');
         // Clear the timer
         clearInterval(timer);
         // If question counter is less than Array length, display next question automatically without user input
