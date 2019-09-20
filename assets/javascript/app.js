@@ -149,8 +149,8 @@ $(document).ready(function () {
         clearInterval(timer);
         // If question counter is less than Array length, display next question automatically without user input
         if (questionCounter < questionsArr.length - 1) {
-            setTimeout(function() {question()}, 12000);
-            setTimeout(function() {possOptions()}, 12000);
+            setTimeout(function() {question()}, 20000);
+            setTimeout(function() {possOptions()}, 20000);
             questionCounter += 1;
         }
         // If question counter is not less than # options, call endGame function
