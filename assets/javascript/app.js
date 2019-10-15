@@ -66,7 +66,7 @@ $(document).ready(function () {
 
         {
             answer: 'Tsunami',
-            explanation: 'They are both long gravity waves which get amplified in shallow water, but they are caused by totally different phenomena. Storm surge is cause by hurricanes and happens far more often than tsunamis. ... Tsunamis occur far less often than storm surge and bring with them much more loss of life and damage.'
+            explanation: 'A surge and tsunami are both long gravity waves which get amplified in shallow water, but they are caused by totally different phenomena. Storm surge is cause by hurricanes and happens far more often than tsunamis. ... Tsunamis occur far less often than storm surge and bring with them much more loss of life and damage.'
         },
 
         {
@@ -149,8 +149,8 @@ $(document).ready(function () {
         clearInterval(timer);
         // If question counter is less than Array length, display next question automatically without user input
         if (questionCounter < questionsArr.length - 1) {
-            setTimeout(function() {question()}, 20000);
-            setTimeout(function() {possOptions()}, 20000);
+            setTimeout(function() {question()}, 30000);
+            setTimeout(function() {possOptions()}, 30000);
             questionCounter += 1;
         }
         // If question counter is not less than # options, call endGame function
