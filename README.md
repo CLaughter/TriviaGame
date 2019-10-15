@@ -1,5 +1,6 @@
+https://claughter.github.io/TriviaGame/
 
-Trivia Game
+Nash's Gnarly Game
 
 Click Start.
 The Time Remaining shows how many seconds are left and counts down from 30.
