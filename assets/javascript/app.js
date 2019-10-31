@@ -92,8 +92,8 @@ $(document).ready(function () {
 
     // Display question
     function question() {
-        time = 15;
-        console.log(questionsArr[7]); // test
+        time = 12;
+        console.log(questionsArr[8]); // test
         
         // hides start game button
         $('#startGame').hide();
