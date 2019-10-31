@@ -17,7 +17,8 @@ $(document).ready(function () {
         'When a gas changes into a liquid it is called what?',
         'An instrument to measure temperature is called __________ ?',
         'Another name for a tidal wave is a __________?',
-        'The fear of what animal is known as ‘arachnophobia’?'
+        'The fear of what animal is known as ‘arachnophobia’?',
+        'Did NASA really find a The Jack-o-Lantern Nebula?'
     ];
 
     let choicesArr = [
@@ -29,6 +30,7 @@ $(document).ready(function () {
         ['Hydrometer', 'Tempometer', 'Gyrometer', 'Thermometer'],
         ['Surge', 'Depression', 'Tsunami', 'Ripple'],
         ['Butterflies', 'Monkeys', 'Snakes', 'Spiders']
+        ['True', 'False']
     ];
 
 //   options[0].possOption
@@ -73,6 +75,11 @@ $(document).ready(function () {
             answer: 'Spiders',
             explanation: 'Arachnophobia is the unreasonable fear of spiders and other arachnids such as scorpions.'
         },
+
+        {
+            answer: 'True',
+            explanation: 'A massive star -- known as an O-type star and about 15 to 20 times heavier than the Sun -- is likely responsible for sculpting this cosmic pumpkin.'
+        }
     ];
 
     // FUNCTIONS****
