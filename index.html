@@ -1,89 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-	<title>Nash's Gnarly Game</title>
+    <title>Nash's Gnarly Game</title>
 
-	<!-- reset.css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- reset.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
 
-	<!-- getBootstrap link -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- getBootstrap link -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
-	<!-- style.css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-	<!-- jQuery CDN link -->
-	<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-	crossorigin="anonymous">
-    </script>
-	
-</head>
-<body>    
-
+    <!-- style.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  </head>
+  <body>
     <!-- Heading -->
-    <div class="row" id="container">   
-            <div class="col-sm=8" id="definitions">
-                 <h2>Nash's Gnarly Game</h2>
-                <br>
-                <h4>Gnarly:</h4>
-                <h5>"very good"; "bumpy or twisted"; "very difficult, or bad"</h5>
-            </div>
+    <div class="row" id="container">
+      <div class="col-sm=8" id="definitions">
+        <h2>Nash's Gnarly Game</h2>
+        <br />
+        <h4>Gnarly:</h4>
+        <h5>"very good"; "bumpy or twisted"; "very difficult, or bad"</h5>
+      </div>
     </div>
-        
-        <!-- Instructions -->
-	<div class=row id="backDrop">
 
-        <div class=col-sm-3 id="instructions">
-            <p><b>Click Start to begin</b>
-                <br>
-                The Time Remaining shows how many seconds are left and counts down from 30.
-                Try to answer all 8 questions before the time is expired.
-                You will be given multiple choice or true/false options.
-                You can only give one answer per question.
-                Your results will the display when the time runs out.
-                You will then be able to get another set of questions.
-            </p>
+    <!-- Instructions -->
+    <div class="row" id="backDrop">
+      <div class="col-sm-3" id="instructions">
+        <p>
+          <b>Click Start to begin</b>
+          <br />
+          The Time Remaining shows how many seconds are left and counts down
+          from 30. Try to answer all 8 questions before the time is expired. You
+          will be given multiple choice or true/false options. You can only give
+          one answer per question. Your results will the display when the time
+          runs out. You will then be able to get another set of questions.
+        </p>
+      </div>
+
+      <!-- Game Area -->
+      <div
+        class="col-sm-6"
+        class="col-med-7"
+        class="col-lg-8"
+        id="rightContainer"
+      >
+        <!-- Timer -->
+        <div id="intervalDiv"></div>
+        <!-- Questions -->
+        <div id="question"></div>
+        <!-- Choices -->
+        <div id="answers"></div>
+        <!-- Correct answer -->
+        <div id="correctAnswers"></div>
+        <!-- Start game button container -->
+        <div class="row">
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-lg" id="startGame">
+              Start Game
+            </button>
+          </div>
         </div>
+      </div>
+    </div>
 
-		<!-- Game Area -->
-		<div class="col-sm-6" class="col-med-7" class="col-lg-8" id="rightContainer">
-            <!-- Timer -->
-            <div id="intervalDiv"></div>
-            <!-- Questions -->
-            <div id="question"></div>
-            <!-- Choices -->
-            <div id="answers"></div>
-            <!-- Correct answer -->
-            <div id="correctAnswers"></div>
-            <!-- Start game button container -->
-            <div class="row">
-                <div class="col-sm-12">
-                    <button type="button" class="btn btn-lg" id="startGame">Start Game</button>
-                </div>
-            </div>
-        </div>
-	</div>
+    <section id="bottom">
+      <footer id="footer">
+        Copyright ©
+      </footer>
+    </section>
 
-  <section id="bottom">
-			<footer id="footer">
-					Copyright ©
-			</footer>
-		</section>
-				
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
 
- <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-	<!-- JS file source -->
-	<script src="assets/javascript/app.js"></script>
-
-</body>
+    <!-- JS file source -->
+    <script src="assets/javascript/app.js"></script>
+  </body>
 </html>
